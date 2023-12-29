@@ -2,6 +2,49 @@
 #include <string.h>
 #include <math.h>
 
+// nested loop
+
+int myNest() {
+   for(int a = 1; a <= 12 ; a++) {
+    for(int b = 1; b <= 12; b++) {
+        printf("%d x %d = %d \n", a,b, a * b);
+    }
+   }
+}
+
+// do while loop
+int myDoWhileLoop() {
+    int first = 0;
+
+    do {
+        first++;
+        printf("%d", first);
+    } while(first < 10);
+}
+
+// while loop
+
+int myWhileLoop() {
+    char password[50];
+    printf("Enter your password: ");
+    fgets(password, 50, stdin);
+
+    while(strlen(password) <=3 ) {
+        printf("Enter something longer than 3 \n");
+        printf("Enter your password: ");
+        fgets(password, 50, stdin);
+    }
+
+    printf("Your password is %s \n", password);
+}
+// for loop
+
+int myForLoop(){
+    for(int a = 1; a <=10; a++) {
+        printf("a is %d \n", a);
+    }
+}
+
 //tenary operator
 
 int findMax(int a, int b) {
@@ -187,6 +230,14 @@ int User() {
 
 
 int main() {
+    myNest();
+    while(getchar() != '\n');
+    myDoWhileLoop();
+    while(getchar() != '\n');
+    myWhileLoop();
+    while(getchar() != '\n');
+    myForLoop();
+    while(getchar()!= '\n');
     int max = findMax(40, 7);
     printf("the maximum number is %d",max);
     while(getchar()!= '\n');
