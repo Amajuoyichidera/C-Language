@@ -2,21 +2,44 @@
 #include <string.h>
 #include <math.h>
 
-// nested loop
 
+// swap values
+
+int mySwap() {
+    char first[] = "David";
+    char second[] = "Kingsley";
+    char third[20];
+
+    strcpy(third, first);
+    strcpy(first, second);
+    strcpy(second, third);
+
+    printf("First: %s \n  Second: %s", first, second);
+}
+// array
+
+int myArray() {
+    char items[][10] = { "beans", "rice", "plantain", "bread", "paw-paw", "mango", "orange" };
+    strcpy(items[0], "okpa");
+    for(int i = 0; i < sizeof(items)/sizeof(items[0]); i++) {
+    printf("%s \n", items[i]);
+}
+}
+
+// nested loop
 int myNest() {
-   for(int a = 1; a <= 12 ; a++) {
-    for(int b = 1; b <= 12; b++) {
-        printf("%d x %d = %d \n", a,b, a * b);
+    for(int a = 1; a <= 12; a++) {
+        for(int b = 1; b <= 12; b++) {
+            printf("%d x %d = %d \n", a,b, a * b);
+        }
     }
-   }
 }
 
 // do while loop
 int myDoWhileLoop() {
     int first = 0;
 
-    do {
+     do {
         first++;
         printf("%d", first);
     } while(first < 10);
@@ -230,6 +253,10 @@ int User() {
 
 
 int main() {
+    mySwap();
+    while(getchar() != '\n')
+    myArray();
+    while(getchar() != '\n')
     myNest();
     while(getchar() != '\n');
     myDoWhileLoop();
