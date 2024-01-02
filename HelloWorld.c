@@ -2,6 +2,46 @@
 #include <string.h>
 #include <math.h>
 
+// typedef
+
+typedef char name[200];
+
+void myTypedef() {
+    name name1 = "obinna";
+    name password = "ikedinmA1234";
+    printf("Welcome %s, your password is %s", name1,password);
+}
+
+// struct
+
+// struct without typedef
+struct Gamers {
+    char player[100];
+    int score;
+};
+
+void myStruct() {
+    struct Gamers player1;
+    strcpy(player1.player, "David Amajuoyi");
+    player1.score = 20;
+
+    printf("Hello %s your score is %d",player1.player, player1.score);
+}
+
+// struct with typedef
+
+typedef struct {
+    char name[100];
+} house;
+
+void myTypedefStruct() {
+    house type1;
+    strcpy(type1.name, "Duplex");
+    house type2;
+    strcpy(type2.name, "Bungalow");
+
+    printf("The houses we have for sale are %s and %s.",type1.name, type2.name);
+}
 
 // swap values
 
@@ -253,6 +293,12 @@ int User() {
 
 
 int main() {
+    myTypedefStruct();
+    while(getchar() != '\n');
+    myTypedef();
+    while(getchar() != '\n');
+    myStruct();
+    while(getchar() != '\n');
     mySwap();
     while(getchar() != '\n')
     myArray();
