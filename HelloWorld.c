@@ -1,6 +1,57 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <stdlib.h>
+#include <time.h>
+
+// number guessing game
+
+void myGame() {
+    srand(time(0));
+    int number = rand() % 11;
+    int numberGuessed;
+    int guesses;
+
+
+    do {
+        printf("Guess a number between 1 to 10: ");
+        scanf("%d", &numberGuessed);
+        if(numberGuessed > number) {
+            printf("The number you entered is too high \n");
+        } else if (numberGuessed < number) {
+             printf("The number you entered is too low \n");
+        } else {
+            printf("You're correct \n");
+        }
+        guesses ++;
+    } while (numberGuessed != number);
+
+    printf("***************** \n");
+    printf("The answer is %d \n", number);
+    printf("You guessed %d times \n", guesses);
+    printf("***************** \n");
+};
+
+// array of structs
+
+struct Student {
+    char name[50];
+    float gpa;
+};
+
+void myArrayOfStructs() {
+    struct Student student1 = {"David", 5.0};
+    struct Student student2 = {"Joshua", 4.5};
+    struct Student student3 = {"micheal", 4.0};
+    struct Student student4 = {"Angel", 4.0};
+
+    struct Student students[] = {student1,student2,student3,student4};
+
+    for(int a = 0; a < sizeof(students) / sizeof(students[0]); a++) {
+        printf("%s\t", students[a].name);
+        printf("%.1f\n", students[a].gpa);
+    }
+}
 
 // typedef
 
@@ -293,6 +344,10 @@ int User() {
 
 
 int main() {
+    myGame();
+    while(getchar() != '\n');
+    myArrayOfStructs();
+    while(getchar() != '\n');
     myTypedefStruct();
     while(getchar() != '\n');
     myTypedef();
