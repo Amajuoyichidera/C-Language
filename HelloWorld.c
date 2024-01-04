@@ -3,7 +3,75 @@
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
+// print three character
+void ft_print_three(char first, char second, char third) {
+    write(1, &first, 1);
+    write(1, &second, 1);
+    write(1, &third, 1);
+}
+
+// print negative or positive number
+void ft_negative_number(int number) {
+    if(number >=0) {
+        write(1, "Positive" , 8);
+    } else {
+        write(1, "Negative", 8);
+    }
+}
+
+// print char
+void ft_print_char(char alphabet) {
+    write(1, &alphabet, 1);
+}
+
+// print alphabet
+void ft_print_alphabet() {
+    char letter = 'A';
+    while(letter <= 'Z') {
+        write(1, &letter, 1);
+        letter++;
+    }
+}
+
+//print reverse alphabet
+void ft_print_reverse_alphabet() {
+    char letter = 'Z';
+    while(letter >= 'A') {
+        write(1, &letter, 1);
+        letter--;
+    }
+}
+
+void print_char(int number) {
+    number += '0';
+    write(1, &number, 1);
+}
+
+//print number
+void ft_print_number() {
+    int number = 0;
+    while(number <= 9) {
+        print_char(number);
+        number++;
+    }
+}
+
+
+int main() {
+    ft_print_three('1', '2', '3');
+   // ft_print_comb();
+   // ft_negative_number(1);
+    //ft_print_number();
+    // ft_print_reverse_alphabet();
+    //ft_print_alphabet();
+    //ft_print_char('V');
+    return 0;
+}
+
+
+/*
 // number guessing game
 
 void myGame() {
@@ -395,8 +463,8 @@ int main() {
     float gpa = 1.5;
     printf("My name is %s, \n i'm %d years old, \n my grade is %c, \n my career is \"%s\", \n my school name is \"%s\", \n and my gpa is %.1f. ", name,age,grade,career,school, gpa);
     */
-    return 0;
-}
+   // return 0;
+//}
 
 
 
