@@ -5,12 +5,75 @@
 #include <time.h>
 #include <unistd.h>
 
+void ft_ft(int *nbr)
+{
+	*nbr = 42;
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb *= -1;
+	}
+	else if (nb == 0)
+		ft_putchar(nb + '0');
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else if (nb >= 1 && nb <= 9)
+		ft_putchar(nb + '0');
+}
+
+// print all unique combination of two number
+void ft_print_comb2() {
+    for(int a = 0; a <=9; a++) {
+        for(int b = a + 1; b <= 9; b++) {
+            char combo[3];
+            combo[0] = a + '0';
+            combo[1] = b + '0';
+            combo[2] = '\n';
+
+            write(1, combo, 3);
+        }
+    }
+}
+
 // print three character
 void ft_print_three(char first, char second, char third) {
     write(1, &first, 1);
     write(1, &second, 1);
     write(1, &third, 1);
+    write(1, ", ", 2);
 }
+
+// print all unique combinations of three digits in ascending order.
+void ft_print_comb() {
+    for(int a = 0; a <=9; a++) {
+        for(int b = a + 1; b <= 9; b++) {
+            for(int c = b + 1; c <= 9; c++) {
+                char combination[4];
+                combination[0] = a + '0';
+                combination[1] = b + '0';
+                combination[2] = c + '0';
+                combination[3] = '\n';
+
+                write(1, combination, 4);
+            }
+        }
+    }
+}
+
 
 // print negative or positive number
 void ft_negative_number(int number) {
@@ -60,7 +123,10 @@ void ft_print_number() {
 
 
 int main() {
-    ft_print_three('1', '2', '3');
+   // ft_putnbr(-1000);
+   // ft_print_comb2();
+    //ft_print_comb();
+    //ft_print_three('1', '2', '3');
    // ft_print_comb();
    // ft_negative_number(1);
     //ft_print_number();
