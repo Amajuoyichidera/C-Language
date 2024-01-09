@@ -5,6 +5,55 @@
 #include <time.h>
 #include <unistd.h>
 
+// function to output string
+void ft_putString(char *myString) {
+    while(*myString) {
+        write(1, myString, 1);
+        myString++;
+    }
+}
+
+//
+void ft_ultimate_div_mod(int *a, int *b) {
+    int temp = *a / *b;
+    *a = *a % *b;
+    *b = temp;
+    printf("The result of the division is %d, and the remainder is %d", temp, *a);
+}
+
+// function that accept two numbers, divides the first number with the second and gives u the result and also the modulues
+void ft_div_mod (int a, int b) {
+    int result = a / b;
+    int remainder = a % b;
+    printf("result is %d and the remainder is %d", result, remainder);
+}
+// pointer
+void my_pointer() {
+    int num = 20;
+    int *numPointer;
+    numPointer = &num;
+
+    printf("the value of num is %d", *numPointer);
+}
+
+void my_pointer2() {
+    int numbers[] = {10, 20, 30};
+    int *numPointer = numbers;
+
+    for(int a = 0; a < 3; a++) {
+        printf("a: %d, num: %d \n", a,*numPointer);
+        numPointer++;
+    }
+
+}
+// swap
+void ft_swap(int a, int b) {
+    int temp;
+    temp = a;
+    a = temp;
+    printf("a: %d, b: %d", a,b);
+}
+
 void ft_ft(int *nbr)
 {
 	*nbr = 42;
@@ -123,6 +172,24 @@ void ft_print_number() {
 
 
 int main() {
+    char myName[] = "David Amajuoyi";
+    ft_putString(&myName);
+    //int number = 10;
+    //int divider = 4;
+    //ft_ultimate_div_mod(&number, &divider);
+    //int a;
+    //int b;
+    //printf("Enter first number: ");
+   // scanf("%d", &a);
+    //while(getchar() != '\n');
+    //printf("Enter second number: ");
+   // scanf("%d", &b);
+   // ft_div_mod(a,b);
+    //my_pointer();
+    //my_pointer2();
+    //int a = 10;
+    //int b = 20;
+    //ft_swap(a, b);
    // ft_putnbr(-1000);
    // ft_print_comb2();
     //ft_print_comb();
