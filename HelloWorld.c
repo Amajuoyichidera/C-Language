@@ -5,6 +5,40 @@
 #include <time.h>
 #include <unistd.h>
 
+// function to copy string
+void ft_strcpy(char *src, char *dest) {
+    char    *destPointer = dest;
+    while(*src) {
+        *dest++ = *src++;
+    }
+    *dest = '\0';
+    return destPointer;
+}
+//function to print number in reversed order
+void ft_rev_int_tab(int *tab, int size) {
+    int start = 0;
+    int end = size - 1;
+    int tmp;
+
+    while (start <= end) {
+        tmp = tab[start];
+        tab[start] = tab[end];
+        tab[end] = tmp;
+        start++;
+        end--;
+    }
+}
+//function to calculate the length of a given string
+void ft_strlen(char * myString) {
+    int length = 0;
+    char *stringPointer = myString;
+    while(*myString) {
+        length++;
+        myString++;
+    }
+    printf("The length of %s is %d",stringPointer,length);
+}
+
 // function to output string
 void ft_putString(char *myString) {
     while(*myString) {
@@ -172,8 +206,21 @@ void ft_print_number() {
 
 
 int main() {
-    char myName[] = "David Amajuoyi";
-    ft_putString(&myName);
+    //char name[] = "David Amajuoyi";
+    //char destination[20];
+    //ft_strcpy(name,destination);
+    //printf("%s",destination);
+    //int myNum[] = {1,2,3,5,8};
+    //int numSize = sizeof(myNum) / sizeof(myNum[0]);
+    //ft_rev_int_tab(myNum, numSize);
+    //printf("Reversed Array: ");
+    //for (int i = 0; i < numSize; i++) {
+        //printf("%d ", myNum[i]);
+   // }
+   // printf("\n");
+    char myName[] = "Amajuoyi Chidera David";
+    ft_strlen(myName);
+    //ft_putString(&myName);
     //int number = 10;
     //int divider = 4;
     //ft_ultimate_div_mod(&number, &divider);
