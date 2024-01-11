@@ -5,15 +5,23 @@
 #include <time.h>
 #include <unistd.h>
 
-// function to copy string
+// function to copy the given amount of string
+void ft_numStrCpy(char *src, char *dest, int n) {
+    while(n > 0 && *src) {
+        *dest++ = *src++;
+        n--;
+    }
+    return dest;
+}
+
+// function to copy the whole string
 void ft_strcpy(char *src, char *dest) {
-    char    *destPointer = dest;
     while(*src) {
         *dest++ = *src++;
     }
-    *dest = '\0';
-    return destPointer;
+    return dest;
 }
+
 //function to print number in reversed order
 void ft_rev_int_tab(int *tab, int size) {
     int start = 0;
@@ -206,10 +214,11 @@ void ft_print_number() {
 
 
 int main() {
-    //char name[] = "David Amajuoyi";
-    //char destination[20];
+    char name[] = "Amajuoyi chideraa david";
+    char destination[30];
     //ft_strcpy(name,destination);
-    //printf("%s",destination);
+    ft_numStrCpy(name,destination,6);
+    printf("%s",destination);
     //int myNum[] = {1,2,3,5,8};
     //int numSize = sizeof(myNum) / sizeof(myNum[0]);
     //ft_rev_int_tab(myNum, numSize);
@@ -218,8 +227,8 @@ int main() {
         //printf("%d ", myNum[i]);
    // }
    // printf("\n");
-    char myName[] = "Amajuoyi Chidera David";
-    ft_strlen(myName);
+    //char myName[] = "Amajuoyi Chidera David";
+    //ft_strlen(myName);
     //ft_putString(&myName);
     //int number = 10;
     //int divider = 4;
