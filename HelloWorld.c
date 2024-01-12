@@ -5,6 +5,56 @@
 #include <time.h>
 #include <unistd.h>
 
+//function to check if a character is printable
+int ft_str_is_printable(char *myStr) {
+    while(*myStr) {
+        if(!(*myStr >= ' ' && *myStr <= '~')) {
+            return 0;
+        }
+        myStr++;
+    }
+    return 1;
+}
+//function to check if the given characters is uppercase only
+int ft_str_is_uppercase(char *myStr) {
+    while(*myStr) {
+        if(!(*myStr >= 'A' && *myStr <= 'Z')) {
+            return 0;
+        }
+        myStr++;
+    }
+    return 1;
+}
+//function to check if the given characters is lowercase only
+int ft_str_is_lowercase(char *myStr) {
+    while(*myStr) {
+        if(!(*myStr >= 'a' && *myStr <= 'z')) {
+            return 0;
+        }
+        myStr++;
+    }
+    return 1;
+}
+//function to check if the given characters contains only numbers
+int ft_str_is_numeric(char *myNum) {
+    while(*myNum) {
+        if(!(*myNum >= '0' && *myNum <= '9')) {
+            return 0;
+        }
+        myNum++;
+    }
+    return 1;
+}
+//function to check if the given characters contains only alphabet
+int ft_str_is_alpha(char *myStr) {
+    while(*myStr) {
+        if(!(*myStr >= 'A' && *myStr <= 'Z' || *myStr >= 'a' && *myStr <= 'z')) {
+            return 0;
+        }
+        myStr++;
+    }
+    return 1;
+}
 // function to copy the given amount of string
 void ft_numStrCpy(char *src, char *dest, int n) {
     while(n > 0 && *src) {
@@ -214,11 +264,19 @@ void ft_print_number() {
 
 
 int main() {
-    char name[] = "Amajuoyi chideraa david";
-    char destination[30];
+    char name[] = "david";
+    printf("%d",ft_str_is_printable(name));
+    //printf("%d",ft_str_is_uppercase(name));
+    //printf("%d",ft_str_is_lowercase(name));
+    //char name[] = "12345";
+   // printf("%d",ft_str_is_numeric(name));
+    //char name[] = "Amajuoyi";
+    //printf("%d",ft_str_is_alpha(name));
+    //char name[] = "Amajuoyi chideraa david";
+    //char destination[30];
     //ft_strcpy(name,destination);
-    ft_numStrCpy(name,destination,6);
-    printf("%s",destination);
+   // ft_numStrCpy(name,destination,6);
+   // printf("%s",destination);
     //int myNum[] = {1,2,3,5,8};
     //int numSize = sizeof(myNum) / sizeof(myNum[0]);
     //ft_rev_int_tab(myNum, numSize);
