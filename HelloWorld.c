@@ -5,6 +5,24 @@
 #include <time.h>
 #include <unistd.h>
 
+//function to change characters from uppercase to lowercase
+void ft_str_to_lowercase(char *myString) {
+    while(*myString) {
+        if(*myString >= 'A' && *myString <= 'Z') {
+            *myString += 32;
+        }
+        myString++;
+    }
+}
+//function to change characters from lowercase to uppercase
+ void ft_str_to_uppercase(char *myString) {
+    while(*myString) {
+        if(*myString >= 'a' && *myString <= 'z') {
+            *myString -= 32;
+        }
+        myString++;
+    }
+}
 //function to check if a character is printable
 int ft_str_is_printable(char *myStr) {
     while(*myStr) {
@@ -16,22 +34,22 @@ int ft_str_is_printable(char *myStr) {
     return 1;
 }
 //function to check if the given characters is uppercase only
-int ft_str_is_uppercase(char *myStr) {
-    while(*myStr) {
-        if(!(*myStr >= 'A' && *myStr <= 'Z')) {
+int ft_str_is_uppercase(char *myString) {
+    while(*myString) {
+        if(!(*myString >= 'A' && *myString <= 'Z')) {
             return 0;
         }
-        myStr++;
+        myString++;
     }
     return 1;
 }
 //function to check if the given characters is lowercase only
-int ft_str_is_lowercase(char *myStr) {
-    while(*myStr) {
-        if(!(*myStr >= 'a' && *myStr <= 'z')) {
+int ft_str_is_lowercase(char *myString) {
+    while(*myString) {
+        if(!(*myString >= 'a' && *myString <= 'z')) {
             return 0;
         }
-        myStr++;
+        myString++;
     }
     return 1;
 }
@@ -56,20 +74,20 @@ int ft_str_is_alpha(char *myStr) {
     return 1;
 }
 // function to copy the given amount of string
-void ft_numStrCpy(char *src, char *dest, int n) {
-    while(n > 0 && *src) {
+char ft_numStrCpy(char *src, char *dest, int n) {
+    while(*src && n > 0) {
         *dest++ = *src++;
         n--;
     }
     return dest;
 }
-
 // function to copy the whole string
-void ft_strcpy(char *src, char *dest) {
+char ft_strcpy(char *src, char *dest) {
+    char *originalDest = dest;
     while(*src) {
         *dest++ = *src++;
     }
-    return dest;
+    return originalDest;
 }
 
 //function to print number in reversed order
@@ -87,7 +105,7 @@ void ft_rev_int_tab(int *tab, int size) {
     }
 }
 //function to calculate the length of a given string
-void ft_strlen(char * myString) {
+void ft_strlen(char *myString) {
     int length = 0;
     char *stringPointer = myString;
     while(*myString) {
@@ -97,6 +115,15 @@ void ft_strlen(char * myString) {
     printf("The length of %s is %d",stringPointer,length);
 }
 
+// or
+/* int ft_strlen(char *myString) {
+    int length = 0;
+    while(*myString) {
+        length++;
+        myString++;
+    }
+    return length;
+}*/
 // function to output string
 void ft_putString(char *myString) {
     while(*myString) {
@@ -264,8 +291,14 @@ void ft_print_number() {
 
 
 int main() {
-    char name[] = "david";
-    printf("%d",ft_str_is_printable(name));
+    char name[] = "DAVID AMAJUOYI";
+    ft_str_to_lowercase(name);
+    printf("%s",name);
+    //char occupation[] = "software engineering";
+    //ft_str_to_uppercase(occupation);
+    //printf("%s", occupation);
+    //char name[] = "david";
+    //printf("%d",ft_str_is_printable(name));
     //printf("%d",ft_str_is_uppercase(name));
     //printf("%d",ft_str_is_lowercase(name));
     //char name[] = "12345";
@@ -274,9 +307,9 @@ int main() {
     //printf("%d",ft_str_is_alpha(name));
     //char name[] = "Amajuoyi chideraa david";
     //char destination[30];
-    //ft_strcpy(name,destination);
+   // ft_strcpy(name,destination);
    // ft_numStrCpy(name,destination,6);
-   // printf("%s",destination);
+    //printf("%s",destination);
     //int myNum[] = {1,2,3,5,8};
     //int numSize = sizeof(myNum) / sizeof(myNum[0]);
     //ft_rev_int_tab(myNum, numSize);
