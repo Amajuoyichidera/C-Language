@@ -5,28 +5,58 @@
 #include <time.h>
 #include <unistd.h>
 
+//function to capitalize only the first letter of the given word
+char ft_str_capitalize(char *str) {
+    int firstLetter = 1;
+    while(*str) {
+        if(*str >= 'a' && *str <= 'z' || *str >= 'A' && *str <= 'Z') {
+            if(firstLetter > 0) {
+                if(*str >= 'a' && *str <= 'z') {
+                    *str -= 32;
+                }
+                firstLetter = 0;
+            } else {
+                if(*str >= 'A' && *str <= 'Z') {
+                    *str += 32;
+                }
+            }
+        } else {
+            firstLetter = 1;
+        }
+        str++;
+    }
+}
 //function to change characters from uppercase to lowercase
-void ft_str_to_lowercase(char *myString) {
-    while(*myString) {
-        if(*myString >= 'A' && *myString <= 'Z') {
+void ft_str_to_lowercase(char *myString)
+{
+    while(*myString)
+    {
+        if(*myString >= 'A' && *myString <= 'Z')
+        {
             *myString += 32;
         }
         myString++;
     }
 }
 //function to change characters from lowercase to uppercase
- void ft_str_to_uppercase(char *myString) {
-    while(*myString) {
-        if(*myString >= 'a' && *myString <= 'z') {
+void ft_str_to_uppercase(char *myString)
+{
+    while(*myString)
+    {
+        if(*myString >= 'a' && *myString <= 'z')
+        {
             *myString -= 32;
         }
         myString++;
     }
 }
 //function to check if a character is printable
-int ft_str_is_printable(char *myStr) {
-    while(*myStr) {
-        if(!(*myStr >= ' ' && *myStr <= '~')) {
+int ft_str_is_printable(char *myStr)
+{
+    while(*myStr)
+    {
+        if(!(*myStr >= ' ' && *myStr <= '~'))
+        {
             return 0;
         }
         myStr++;
@@ -34,9 +64,12 @@ int ft_str_is_printable(char *myStr) {
     return 1;
 }
 //function to check if the given characters is uppercase only
-int ft_str_is_uppercase(char *myString) {
-    while(*myString) {
-        if(!(*myString >= 'A' && *myString <= 'Z')) {
+int ft_str_is_uppercase(char *myString)
+{
+    while(*myString)
+    {
+        if(!(*myString >= 'A' && *myString <= 'Z'))
+        {
             return 0;
         }
         myString++;
@@ -44,9 +77,12 @@ int ft_str_is_uppercase(char *myString) {
     return 1;
 }
 //function to check if the given characters is lowercase only
-int ft_str_is_lowercase(char *myString) {
-    while(*myString) {
-        if(!(*myString >= 'a' && *myString <= 'z')) {
+int ft_str_is_lowercase(char *myString)
+{
+    while(*myString)
+    {
+        if(!(*myString >= 'a' && *myString <= 'z'))
+        {
             return 0;
         }
         myString++;
@@ -54,9 +90,12 @@ int ft_str_is_lowercase(char *myString) {
     return 1;
 }
 //function to check if the given characters contains only numbers
-int ft_str_is_numeric(char *myNum) {
-    while(*myNum) {
-        if(!(*myNum >= '0' && *myNum <= '9')) {
+int ft_str_is_numeric(char *myNum)
+{
+    while(*myNum)
+    {
+        if(!(*myNum >= '0' && *myNum <= '9'))
+        {
             return 0;
         }
         myNum++;
@@ -64,9 +103,12 @@ int ft_str_is_numeric(char *myNum) {
     return 1;
 }
 //function to check if the given characters contains only alphabet
-int ft_str_is_alpha(char *myStr) {
-    while(*myStr) {
-        if(!(*myStr >= 'A' && *myStr <= 'Z' || *myStr >= 'a' && *myStr <= 'z')) {
+int ft_str_is_alpha(char *myStr)
+{
+    while(*myStr)
+    {
+        if(!(*myStr >= 'A' && *myStr <= 'Z' || *myStr >= 'a' && *myStr <= 'z'))
+        {
             return 0;
         }
         myStr++;
@@ -74,29 +116,35 @@ int ft_str_is_alpha(char *myStr) {
     return 1;
 }
 // function to copy the given amount of string
-char ft_numStrCpy(char *src, char *dest, int n) {
-    while(*src && n > 0) {
+char *ft_numStrCpy(char *src, char *dest, int n)
+{
+    while(*src && n > 0)
+    {
         *dest++ = *src++;
         n--;
     }
     return dest;
 }
 // function to copy the whole string
-char ft_strcpy(char *src, char *dest) {
+char ft_strcpy(char *src, char *dest)
+{
     char *originalDest = dest;
-    while(*src) {
+    while(*src)
+    {
         *dest++ = *src++;
     }
     return originalDest;
 }
 
 //function to print number in reversed order
-void ft_rev_int_tab(int *tab, int size) {
+void ft_rev_int_tab(int *tab, int size)
+{
     int start = 0;
     int end = size - 1;
     int tmp;
 
-    while (start <= end) {
+    while (start <= end)
+    {
         tmp = tab[start];
         tab[start] = tab[end];
         tab[end] = tmp;
@@ -105,10 +153,12 @@ void ft_rev_int_tab(int *tab, int size) {
     }
 }
 //function to calculate the length of a given string
-void ft_strlen(char *myString) {
+void ft_strlen(char *myString)
+{
     int length = 0;
     char *stringPointer = myString;
-    while(*myString) {
+    while(*myString)
+    {
         length++;
         myString++;
     }
@@ -125,15 +175,18 @@ void ft_strlen(char *myString) {
     return length;
 }*/
 // function to output string
-void ft_putString(char *myString) {
-    while(*myString) {
+void ft_putString(char *myString)
+{
+    while(*myString)
+    {
         write(1, myString, 1);
         myString++;
     }
 }
 
 //
-void ft_ultimate_div_mod(int *a, int *b) {
+void ft_ultimate_div_mod(int *a, int *b)
+{
     int temp = *a / *b;
     *a = *a % *b;
     *b = temp;
@@ -141,13 +194,15 @@ void ft_ultimate_div_mod(int *a, int *b) {
 }
 
 // function that accept two numbers, divides the first number with the second and gives u the result and also the modulues
-void ft_div_mod (int a, int b) {
+void ft_div_mod (int a, int b)
+{
     int result = a / b;
     int remainder = a % b;
     printf("result is %d and the remainder is %d", result, remainder);
 }
 // pointer
-void my_pointer() {
+void my_pointer()
+{
     int num = 20;
     int *numPointer;
     numPointer = &num;
@@ -155,18 +210,21 @@ void my_pointer() {
     printf("the value of num is %d", *numPointer);
 }
 
-void my_pointer2() {
+void my_pointer2()
+{
     int numbers[] = {10, 20, 30};
     int *numPointer = numbers;
 
-    for(int a = 0; a < 3; a++) {
+    for(int a = 0; a < 3; a++)
+    {
         printf("a: %d, num: %d \n", a,*numPointer);
         numPointer++;
     }
 
 }
 // swap
-void ft_swap(int a, int b) {
+void ft_swap(int a, int b)
+{
     int temp;
     temp = a;
     a = temp;
@@ -175,38 +233,41 @@ void ft_swap(int a, int b) {
 
 void ft_ft(int *nbr)
 {
-	*nbr = 42;
+    *nbr = 42;
 }
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+    write(1, &c, 1);
 }
 
 void	ft_putnbr(int nb)
 {
-	if (nb == -2147483648)
-		write(1, "-2147483648", 11);
-	else if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb *= -1;
-	}
-	else if (nb == 0)
-		ft_putchar(nb + '0');
-	if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else if (nb >= 1 && nb <= 9)
-		ft_putchar(nb + '0');
+    if (nb == -2147483648)
+        write(1, "-2147483648", 11);
+    else if (nb < 0)
+    {
+        write(1, "-", 1);
+        nb *= -1;
+    }
+    else if (nb == 0)
+        ft_putchar(nb + '0');
+    if (nb > 9)
+    {
+        ft_putnbr(nb / 10);
+        ft_putnbr(nb % 10);
+    }
+    else if (nb >= 1 && nb <= 9)
+        ft_putchar(nb + '0');
 }
 
 // print all unique combination of two number
-void ft_print_comb2() {
-    for(int a = 0; a <=9; a++) {
-        for(int b = a + 1; b <= 9; b++) {
+void ft_print_comb2()
+{
+    for(int a = 0; a <=9; a++)
+    {
+        for(int b = a + 1; b <= 9; b++)
+        {
             char combo[3];
             combo[0] = a + '0';
             combo[1] = b + '0';
@@ -218,7 +279,8 @@ void ft_print_comb2() {
 }
 
 // print three character
-void ft_print_three(char first, char second, char third) {
+void ft_print_three(char first, char second, char third)
+{
     write(1, &first, 1);
     write(1, &second, 1);
     write(1, &third, 1);
@@ -226,10 +288,14 @@ void ft_print_three(char first, char second, char third) {
 }
 
 // print all unique combinations of three digits in ascending order.
-void ft_print_comb() {
-    for(int a = 0; a <=9; a++) {
-        for(int b = a + 1; b <= 9; b++) {
-            for(int c = b + 1; c <= 9; c++) {
+void ft_print_comb()
+{
+    for(int a = 0; a <=9; a++)
+    {
+        for(int b = a + 1; b <= 9; b++)
+        {
+            for(int c = b + 1; c <= 9; c++)
+            {
                 char combination[4];
                 combination[0] = a + '0';
                 combination[1] = b + '0';
@@ -244,55 +310,69 @@ void ft_print_comb() {
 
 
 // print negative or positive number
-void ft_negative_number(int number) {
-    if(number >=0) {
-        write(1, "Positive" , 8);
-    } else {
+void ft_negative_number(int number)
+{
+    if(number >=0)
+    {
+        write(1, "Positive", 8);
+    }
+    else
+    {
         write(1, "Negative", 8);
     }
 }
 
 // print char
-void ft_print_char(char alphabet) {
+void ft_print_char(char alphabet)
+{
     write(1, &alphabet, 1);
 }
 
 // print alphabet
-void ft_print_alphabet() {
+void ft_print_alphabet()
+{
     char letter = 'A';
-    while(letter <= 'Z') {
+    while(letter <= 'Z')
+    {
         write(1, &letter, 1);
         letter++;
     }
 }
 
 //print reverse alphabet
-void ft_print_reverse_alphabet() {
+void ft_print_reverse_alphabet()
+{
     char letter = 'Z';
-    while(letter >= 'A') {
+    while(letter >= 'A')
+    {
         write(1, &letter, 1);
         letter--;
     }
 }
 
-void print_char(int number) {
+void print_char(int number)
+{
     number += '0';
     write(1, &number, 1);
 }
 
 //print number
-void ft_print_number() {
+void ft_print_number()
+{
     int number = 0;
-    while(number <= 9) {
+    while(number <= 9)
+    {
         print_char(number);
         number++;
     }
 }
 
 
-int main() {
-    char name[] = "DAVID AMAJUOYI";
-    ft_str_to_lowercase(name);
+int main()
+{
+    char name[] = "DAVID AMAJUOYI chidera";
+    //ft_str_to_lowercase(name);
+    ft_str_capitalize(name);
     printf("%s",name);
     //char occupation[] = "software engineering";
     //ft_str_to_uppercase(occupation);
@@ -302,22 +382,22 @@ int main() {
     //printf("%d",ft_str_is_uppercase(name));
     //printf("%d",ft_str_is_lowercase(name));
     //char name[] = "12345";
-   // printf("%d",ft_str_is_numeric(name));
+    // printf("%d",ft_str_is_numeric(name));
     //char name[] = "Amajuoyi";
     //printf("%d",ft_str_is_alpha(name));
     //char name[] = "Amajuoyi chideraa david";
     //char destination[30];
-   // ft_strcpy(name,destination);
-   // ft_numStrCpy(name,destination,6);
+    // ft_strcpy(name,destination);
+    // ft_numStrCpy(name,destination,6);
     //printf("%s",destination);
     //int myNum[] = {1,2,3,5,8};
     //int numSize = sizeof(myNum) / sizeof(myNum[0]);
     //ft_rev_int_tab(myNum, numSize);
     //printf("Reversed Array: ");
     //for (int i = 0; i < numSize; i++) {
-        //printf("%d ", myNum[i]);
-   // }
-   // printf("\n");
+    //printf("%d ", myNum[i]);
+    // }
+    // printf("\n");
     //char myName[] = "Amajuoyi Chidera David";
     //ft_strlen(myName);
     //ft_putString(&myName);
@@ -327,22 +407,22 @@ int main() {
     //int a;
     //int b;
     //printf("Enter first number: ");
-   // scanf("%d", &a);
+    // scanf("%d", &a);
     //while(getchar() != '\n');
     //printf("Enter second number: ");
-   // scanf("%d", &b);
-   // ft_div_mod(a,b);
+    // scanf("%d", &b);
+    // ft_div_mod(a,b);
     //my_pointer();
     //my_pointer2();
     //int a = 10;
     //int b = 20;
     //ft_swap(a, b);
-   // ft_putnbr(-1000);
-   // ft_print_comb2();
+    // ft_putnbr(-1000);
+    // ft_print_comb2();
     //ft_print_comb();
     //ft_print_three('1', '2', '3');
-   // ft_print_comb();
-   // ft_negative_number(1);
+    // ft_print_comb();
+    // ft_negative_number(1);
     //ft_print_number();
     // ft_print_reverse_alphabet();
     //ft_print_alphabet();
@@ -743,7 +823,7 @@ int main() {
     float gpa = 1.5;
     printf("My name is %s, \n i'm %d years old, \n my grade is %c, \n my career is \"%s\", \n my school name is \"%s\", \n and my gpa is %.1f. ", name,age,grade,career,school, gpa);
     */
-   // return 0;
+// return 0;
 //}
 
 
