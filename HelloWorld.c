@@ -5,6 +5,14 @@
 #include <time.h>
 #include <unistd.h>
 
+//function to compare two strings
+int ft_str_comp(char *str1, char *str2) {
+    while(*str1 && *str2 && *str1 == *str2) {
+        str1++;
+        str2++;
+    }
+    return *str1 - *str2;
+}
 //function to capitalize only the first letter of the given word
 char ft_str_capitalize(char *str) {
     int firstLetter = 1;
@@ -25,6 +33,7 @@ char ft_str_capitalize(char *str) {
         }
         str++;
     }
+    return str;
 }
 //function to change characters from uppercase to lowercase
 void ft_str_to_lowercase(char *myString)
@@ -370,10 +379,22 @@ void ft_print_number()
 
 int main()
 {
-    char name[] = "DAVID AMAJUOYI chidera";
+     char str1[] = "bbbb";
+    char str2[] = "bbbbbc";
+    int result = ft_str_comp(str1, str2);
+
+    if (result == 0) {
+        printf("The two strings are the same\n");
+    } else if (result < 0) {
+        printf("str2: %s is greater than str1: %s\n", str2, str1);
+    } else {
+        printf("str1: %s is greater than str2: %s\n", str1, str2);
+    }
+    //printf("%d", result);
+    //char name[] = "DAVID AMAJUOYI chidera";
     //ft_str_to_lowercase(name);
-    ft_str_capitalize(name);
-    printf("%s",name);
+    //ft_str_capitalize(name);
+    //printf("%s",name);
     //char occupation[] = "software engineering";
     //ft_str_to_uppercase(occupation);
     //printf("%s", occupation);
