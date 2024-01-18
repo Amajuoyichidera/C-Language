@@ -5,6 +5,43 @@
 #include <time.h>
 #include <unistd.h>
 
+//function to concantenate the given number of two srings
+char ft_str_num_cat(char *src, char *dest, int n) {
+    char *destPointer = dest;
+    while(*dest) {
+        dest++;
+    }
+    while(*src && n > 0) {
+        *dest++ = *src++;
+        n--;
+    }
+    *dest = '\0';
+    return destPointer;
+}
+//function to concantenate/combine/join two strings together
+char ft_strcat(char *src, char *dest) {
+    char *destPointer = dest;
+    while(*dest) {
+        dest++;
+    }
+    while(*src) {
+        *dest++ = *src++;
+    }
+    *dest = '\0';
+    return destPointer;
+}
+//function to compare the given number of two strings
+int ft_str_num_comp(char *str1, char *str2, unsigned int n) {
+    while(*str1 && *str2 && *str1 == *str2 && n > 0) {
+        str1++;
+        str2++;
+        n--;
+    }
+    if(n == 0) {
+        return 0;
+    }
+    return *str1 - *str2;
+}
 //function to compare two strings
 int ft_str_comp(char *str1, char *str2) {
     while(*str1 && *str2 && *str1 == *str2) {
@@ -29,7 +66,9 @@ char ft_str_capitalize(char *str) {
                 }
             }
         } else {
-            firstLetter = 1;
+            if(!(*str >= '0' && *str <= '9')) {
+                firstLetter = 1;
+            }
         }
         str++;
     }
@@ -379,22 +418,27 @@ void ft_print_number()
 
 int main()
 {
-     char str1[] = "bbbb";
-    char str2[] = "bbbbbc";
-    int result = ft_str_comp(str1, str2);
+    char src[] = "David";
+    char dest[] = "Hello ";
+    //ft_strcat(src,dest);
+    ft_str_num_cat(src,dest,3);
+    printf("%s",dest);
+    // char str1[] = "bbbb";
+    //char str2[] = "bbbba";
+   //int result = ft_str_comp(str1, str2);
+   //int result = ft_str_num_comp(str1, str2, 4);
 
-    if (result == 0) {
-        printf("The two strings are the same\n");
-    } else if (result < 0) {
-        printf("str2: %s is greater than str1: %s\n", str2, str1);
-    } else {
-        printf("str1: %s is greater than str2: %s\n", str1, str2);
-    }
-    //printf("%d", result);
-    //char name[] = "DAVID AMAJUOYI chidera";
+   //if (result == 0) {
+   //printf("the two strings are the same\n");
+   //} else if (result < 0) {
+     //printf("str2: %s is greater than str1: %s\n", str2, str1);
+  // } else {
+    // printf("str1: %s is greater str2: %s\n", str1, str2);
+  // }
+    //char name[] = "DAVID12a AMAJUOYI chidera";
     //ft_str_to_lowercase(name);
     //ft_str_capitalize(name);
-    //printf("%s",name);
+   // printf("%s",name);
     //char occupation[] = "software engineering";
     //ft_str_to_uppercase(occupation);
     //printf("%s", occupation);
