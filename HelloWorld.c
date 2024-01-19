@@ -5,12 +5,31 @@
 #include <time.h>
 #include <unistd.h>
 
+//function to find the first occurrence of a substring within a given string
+char *ft_strstr(char *str, char *to_find) {
+    while(*str) {
+        char *strPointer = str;
+        char *to_findPointer = to_find;
+
+        while(*strPointer && *to_findPointer && *strPointer == *to_findPointer) {
+            strPointer++;
+            to_findPointer++;
+        }
+
+        if(*to_findPointer == '\0') {
+            return str;
+        }
+        str++;
+    }
+    return NULL;
+}
 //function to concantenate the given number of two srings
-char ft_str_num_cat(char *src, char *dest, int n) {
-    char *destPointer = dest;
+char ft_str_num_cat(char *dest, char *src, int n) {
+   char *destPointer = dest;
     while(*dest) {
         dest++;
     }
+
     while(*src && n > 0) {
         *dest++ = *src++;
         n--;
@@ -19,11 +38,12 @@ char ft_str_num_cat(char *src, char *dest, int n) {
     return destPointer;
 }
 //function to concantenate/combine/join two strings together
-char ft_strcat(char *src, char *dest) {
+char ft_strcat(char *dest, char *src) {
     char *destPointer = dest;
     while(*dest) {
         dest++;
     }
+
     while(*src) {
         *dest++ = *src++;
     }
@@ -31,7 +51,7 @@ char ft_strcat(char *src, char *dest) {
     return destPointer;
 }
 //function to compare the given number of two strings
-int ft_str_num_comp(char *str1, char *str2, unsigned int n) {
+int ft_str_num_comp(char *str1, char *str2, int n) {
     while(*str1 && *str2 && *str1 == *str2 && n > 0) {
         str1++;
         str2++;
@@ -418,11 +438,22 @@ void ft_print_number()
 
 int main()
 {
-    char src[] = "David";
-    char dest[] = "Hello ";
+    char haystack[] = "Hello, David! How are you?";
+    char needle[] = "David";
+
+    char *result = ft_strstr(haystack, needle);
+
+    if (result != NULL) {
+        printf("Substring found at position: %ld\n", result - haystack);
+    } else {
+        printf("Substring not found.\n");
+    }
+
+    //char src[] = "David";
+    //char dest[] = "Hello ";
     //ft_strcat(src,dest);
-    ft_str_num_cat(src,dest,3);
-    printf("%s",dest);
+    //ft_str_num_cat(dest,src,3);
+    //printf("%s",dest);
     // char str1[] = "bbbb";
     //char str2[] = "bbbba";
    //int result = ft_str_comp(str1, str2);
