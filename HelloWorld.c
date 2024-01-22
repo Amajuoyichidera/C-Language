@@ -5,6 +5,31 @@
 #include <time.h>
 #include <unistd.h>
 
+//function to calculate the factorial of a positive integer
+long long ft_iterative_factorial(int num) {
+    long long result = 1;
+    while(num > 1) {
+        result *= num;
+        num--;
+    }
+    return result;
+}
+//function to put string
+void ft_put_str(char *str) {
+    while(*str) {
+        write(1, str, 1);
+        str++;
+    }
+}
+//function to print the length of characters in a given string
+int ft_str_length(char *str) {
+    int numOfChar = 0;
+    while(*str) {
+        numOfChar++;
+        str++;
+    }
+    return numOfChar;
+}
 //function to find the first occurrence of a substring within a given string
 char *ft_strstr(char *str, char *to_find) {
     while(*str) {
@@ -26,16 +51,19 @@ char *ft_strstr(char *str, char *to_find) {
 //function to concantenate the given number of two srings
 char ft_str_num_cat(char *dest, char *src, int n) {
    char *destPointer = dest;
-    while(*dest) {
-        dest++;
-    }
 
-    while(*src && n > 0) {
-        *dest++ = *src++;
-        n--;
-    }
-    *dest = '\0';
-    return destPointer;
+   while(*dest) {
+    dest++;
+   }
+
+   while(*src && n > 0) {
+    *dest++ = *src++;
+    n--;
+   }
+
+   *dest = '\0';
+
+   return destPointer;
 }
 //function to concantenate/combine/join two strings together
 char ft_strcat(char *dest, char *src) {
@@ -47,6 +75,7 @@ char ft_strcat(char *dest, char *src) {
     while(*src) {
         *dest++ = *src++;
     }
+
     *dest = '\0';
     return destPointer;
 }
@@ -438,16 +467,20 @@ void ft_print_number()
 
 int main()
 {
-    char haystack[] = "Hello, David! How are you?";
-    char needle[] = "David";
+    long long result = ft_iterative_factorial(20);
+    printf("%lld",result);
+    // char example[] = "Hello, World!";
+   // ft_put_str(example);
+   // char haystack[] = "Hello, David! How are you?";
+   // char needle[] = "David";
 
-    char *result = ft_strstr(haystack, needle);
+   // char *result = ft_strstr(haystack, needle);
 
-    if (result != NULL) {
-        printf("Substring found at position: %ld\n", result - haystack);
-    } else {
-        printf("Substring not found.\n");
-    }
+   // if (result != NULL) {
+      //  printf("Substring found at position: %ld\n", result - haystack);
+   // } else {
+       // printf("Substring not found.\n");
+   // }
 
     //char src[] = "David";
     //char dest[] = "Hello ";
