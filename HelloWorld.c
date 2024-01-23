@@ -5,6 +5,100 @@
 #include <time.h>
 #include <unistd.h>
 
+
+//function to put string
+void my_ft_put_string(char *str) {
+    while(*str) {
+        write(1, str, 1);
+        str++;
+    }
+}
+//my ultimate div mod function
+void my_ultimate_div_mod(int *a, int *b) {
+    int division = *a;
+    int mode = *b;
+    *a = division / mode;
+    *b = division % mode;
+}
+//division modulus function
+void my_div_mod(int a, int b, int *division, int *mode) {
+   *division = a / b;
+   *mode = a % b;
+}
+//function to swap
+void my_ft_swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+//function that modifies the value of an integer through nine pointer.
+void my_ft_ultimate_ft(int *********num) {
+    *********num = 42;
+}
+//function that modifies the value of an integer through a pointer.
+void my_ft_ft(int *num) {
+    *num = 42;
+}
+//function to print n for negative number and p for positive
+void ft_num_is_negative(int num) {
+    char p = 'P';
+    char n = 'N';
+    if(num >= 0) {
+        write(1, &p, 1);
+    } else {
+        write(1, &n, 1);
+    }
+}
+//function to print numbers
+void ft_print_my_number() {
+    char num = '0';
+    while(num <= '9') {
+        write(1, &num, 1);
+        num++;
+        write(1, "\n", 1);
+    }
+}
+//function to print reverse alphabet
+void ft_print_my_reverse_alphabet() {
+    char letter = 'z';
+    while(letter >= 'a') {
+        write(1, &letter, 1);
+        letter--;
+        write(1, "\n", 1);
+    }
+}
+//function to print alphabet
+void ft_print_my_alphabet() {
+    char letter = 'a';
+    while(letter <= 'z') {
+        write(1, &letter, 1);
+        letter++;
+        write(1, "\n", 1);
+    }
+}
+//function to put character or write character
+void ft_putMyChar(char *c) {
+    write(1, &c, 1);
+}
+
+//function to calculate the result of a number raised to power of s given number
+int ft_iterative_power(int num, int power) {
+    int result = 1;
+    if(num == 0 && power == 0) {
+        return 1;
+    }
+
+    if(power < 0) {
+        return 0;
+    }
+
+    while(power > 0) {
+        result *= num;
+        power--;
+    }
+
+    return result;
+}
 //function to calculate the factorial of a positive integer
 long long ft_iterative_factorial(int num) {
     long long result = 1;
@@ -467,8 +561,44 @@ void ft_print_number()
 
 int main()
 {
-    long long result = ft_iterative_factorial(20);
-    printf("%lld",result);
+    int num1 = 20;
+    int num2 = 10;
+    my_ultimate_div_mod(&num1,&num2);
+    printf("%d", num1);
+    //int dividend = 20;
+    //int divisor = 2;
+    //int divisionResult;
+    //int modeResult;
+    //my_div_mod(dividend,divisor,&divisionResult,&modeResult);
+    //printf("%d",divisionResult);
+    //int num1 = 10;
+    //int num2 = 20;
+   // my_ft_swap(&num1, &num2);
+    //printf("%d",num1);
+    //int num = 10;
+    //int *numPoint1 = &num;
+    //int **numPoint2 = &numPoint1;
+    //int ***numPoint3 = &numPoint2;
+    //int ****numPoint4 = &numPoint3;
+   // int *****numPoint5 = &numPoint4;
+    //int ******numPoint6 = &numPoint5;
+    //int *******numPoint7 = &numPoint6;
+    //int ********numPoint8 = &numPoint7;
+    //int *********numPoint9 = &numPoint8;
+    //my_ft_ultimate_ft(numPoint9);
+   // printf("%d", num);
+    //int num = 10;
+    //my_ft_ft(&num);
+    //printf("%d",num);
+   // char num = 1;
+    //ft_num_is_negative(num);
+   // ft_print_my_number();
+    //ft_print_my_reverse_alphabet();
+    //ft_print_my_alphabet();
+    //char str = 'a';
+    //ft_putMyChar(str);
+   // long long result = ft_iterative_factorial(20);
+    //printf("%lld",result);
     // char example[] = "Hello, World!";
    // ft_put_str(example);
    // char haystack[] = "Hello, David! How are you?";
