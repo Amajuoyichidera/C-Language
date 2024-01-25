@@ -5,7 +5,42 @@
 #include <time.h>
 #include <unistd.h>
 
-
+//unction to check if a given string is alphabet only
+int *my_str_is_alpha(char *str) {
+    while(*str) {
+        if(!(*str >= 'a' && *str <= 'z' || *str >= 'A' && *str <= 'Z')) {
+            return 0;
+        }
+        str++;
+    }
+    return 1;
+}
+//function to copy the given number of a string from source to destination
+char *my_ft_str_num_cpy(char *dest, char *src, int n) {
+    while(*src && n > 0) {
+        *dest++ = *src++;
+        n--;
+    }
+    *dest = '\0';
+    return dest;
+}
+//function to copy a string from source to destination
+char *my_ft_str_cpy(char *dest, char *src) {
+    while(*src) {
+        *dest++ = *src++;
+    }
+    *dest = '\0';
+    return dest;
+}
+//function to calculate the length of a string
+int my_ft_str_length(char *str) {
+    int length = 0;
+    while(*str) {
+        length++;
+        str++;
+    }
+    return length;
+}
 //function to put string
 void my_ft_put_string(char *str) {
     while(*str) {
@@ -561,10 +596,21 @@ void ft_print_number()
 
 int main()
 {
-    int num1 = 20;
-    int num2 = 10;
-    my_ultimate_div_mod(&num1,&num2);
-    printf("%d", num1);
+    char example1[] = "HelloWorld";
+     int result1 = my_str_is_alpha(example1);
+      printf("Example 1: %s\n", result1 ? "Alphabetic" : "Non-alphabetic");
+    //char mySrc[] = "David Amajuoyi";
+    //char dest[30];
+   // my_ft_str_num_cpy(&dest, &mySrc, 5);
+    //my_ft_str_cpy(&dest, &mySrc);
+   // printf("%s", dest);
+   // char myStr[] = "David Amajuoyi";
+   // int result = my_ft_str_length(&myStr);
+   // printf("%d", result);
+    //int num1 = 20;
+    //int num2 = 10;
+   // my_ultimate_div_mod(&num1,&num2);
+    //printf("%d", num1);
     //int dividend = 20;
     //int divisor = 2;
     //int divisionResult;
