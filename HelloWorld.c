@@ -5,8 +5,109 @@
 #include <time.h>
 #include <unistd.h>
 
-//unction to check if a given string is alphabet only
-int *my_str_is_alpha(char *str) {
+//function to concatenate the given number of two strings
+char *my_str_num_concatenate(char *dest, char *src, int n) {
+    while(*dest) {
+        dest++;
+    }
+
+    while(*src && n > 0) {
+        *dest++ = *src++;
+        n--;
+    }
+    *dest = '\0';
+    return dest;
+}
+//function to concantenate two strings
+char *my_str_concatenate(char *dest, char *src) {
+    while(*dest) {
+        dest++;
+    }
+
+    while(*src) {
+        *dest++ = *src++;
+    }
+    *dest = '\0';
+    return dest;
+}
+//function to compare the given number of two strings and know if they are the same
+int my_str_num_comp(char *str1, char *str2, int n) {
+    while(*str1 && *str2 && *str1 == *str2 && n > 0) {
+        str1++;
+        str2++;
+        n--;
+    }
+
+    return *str1 - *str2;
+}
+//function to compare two strings and know if they are the same
+int my_str_comp(char *str1, char *str2) {
+    while(*str1 && *str2 && *str1 == *str2) {
+        str1++;
+        str2++;
+    }
+    return (*str1 - *str2);
+}
+//function to convert uppercase string to lowercase
+void my_str_to_lower(char *str) {
+    while(*str) {
+        if(*str >= 'A' && *str <= 'Z') {
+            *str += 32;
+        }
+        str++;
+    }
+}
+//function to convert lowercase string to uppercase
+void my_str_to_upper(char *str) {
+    while(*str) {
+        if(*str >= 'a' && *str <= 'z') {
+            *str -= 32;
+        }
+        str++;
+    }
+}
+//function to check if given string is printable
+int my_str_is_print(char *str) {
+    while(*str) {
+        if(!(*str >= ' ' && *str <= '~')) {
+            return 0;
+        }
+        str++;
+    }
+    return 1;
+}
+//function to check if given string is lowercase only
+int my_str_is_upper(char *str) {
+    while(*str) {
+        if(!(*str >= 'A' && *str <= 'Z')) {
+            return 0;
+        }
+        str++;
+    }
+    return 1;
+}
+//function to check if given string is lowercase only
+int my_str_is_lower(char *str) {
+    while(*str) {
+        if(!(*str >= 'a' && *str <= 'z')) {
+            return 0;
+        }
+        str++;
+    }
+    return 1;
+}
+//function to check if the given string is numbers only
+int my_str_is_num(char *str) {
+   while(*str) {
+    if(!(*str >= '0' && *str <= '9')) {
+        return 0;
+    }
+    str++;
+   }
+   return 1;
+}
+//function to check if a given string is alphabet only
+int my_str_is_alpha(char *str) {
     while(*str) {
         if(!(*str >= 'a' && *str <= 'z' || *str >= 'A' && *str <= 'Z')) {
             return 0;
@@ -596,9 +697,31 @@ void ft_print_number()
 
 int main()
 {
-    char example1[] = "HelloWorld";
-     int result1 = my_str_is_alpha(example1);
-      printf("Example 1: %s\n", result1 ? "Alphabetic" : "Non-alphabetic");
+     char str1[20] = "Hello, ";
+    char str2[] = "world!";
+    my_str_num_concatenate(str1, str2, 3);
+   // my_str_concatenate(str1, str2);
+    printf("Concatenated string: %s\n", str1);
+   // char str1[] = "apeple";
+    //char str2[] = "apples";
+   // int result = my_str_num_comp(str1, str2, 3);
+    //int result = my_str_comp(str1, str2);
+   // if(result == 0) {
+     //   printf("The two strings are the same");
+   // } else if(result < 0) {
+    //    printf("string two: %s is greater than string one: %s",str2,str1);
+   // } else {
+   //     printf("string one: %s is greater than string two: %s", str1, str2);
+    //}
+   // char example[] = "david";
+    //(&example);
+   // printf("%s",example);
+   // char example[] = "12345r";
+   // int result = my_str_is_num(&example);
+   // result ? printf("the string is num") : printf("the string is not num");
+    //char example1[] = "HelloWorld";
+    // int result1 = my_str_is_alpha(example1);
+//printf("Example 1: %s\n", result1 ? "Alphabetic" : "Non-alphabetic");
     //char mySrc[] = "David Amajuoyi";
     //char dest[30];
    // my_ft_str_num_cpy(&dest, &mySrc, 5);
