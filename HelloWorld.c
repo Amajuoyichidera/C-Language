@@ -5,6 +5,15 @@
 #include <time.h>
 #include <unistd.h>
 
+//function to calculate the length of a string
+int my_str_length(char *str) {
+    int length = 0;
+    while(*str) {
+        length++;
+        str++;
+    }
+    return length;
+}
 //function to concatenate the given number of two strings
 char *my_str_num_concatenate(char *dest, char *src, int n) {
     while(*dest) {
