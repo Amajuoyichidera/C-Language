@@ -5,6 +5,161 @@
 #include <time.h>
 #include <unistd.h>
 
+
+
+//function to calculate the length of a string
+int ft_str_len(char *str) {
+    int length = 0;
+    while(*str) {
+        length++;
+        str++;
+    }
+    return length;
+}
+//function to put string
+void ft_put_string(char *str) {
+    while(*str) {
+        write(1, str, 1);
+        str++;
+    }
+}
+//ft_ultimate_div_mod
+ft_ultimate_div_mod(int *a, int *b) {
+    int temp = *a / *b;
+    *b = *a % *b;
+    *a = temp;
+}
+//ft_div_mod
+void ft_div_mod(int a, int b, int *div, int *mod) {
+    *div = a / b;
+    *mod = a % b;
+}
+//function to swap
+void ft_swap(char *str1, char *str2) {
+    char temp = *str1;
+    *str1 = *str2;
+    *str2 = temp;
+}
+//ft_ft_ultimate
+void ft_ft_ultimate(int *********num) {
+    *********num = 42;
+}
+//ft_ft function
+void ft_ft(int *num) {
+    *num = 42;
+}
+//function to check whether a number is negative or positive
+void ft_is_negative(int *num) {
+    char positive = 'P';
+    char negative = 'N';
+        if(*num >= 0) {
+            write(1, &positive, 1);
+        } else {
+            write(1, &negative, 1);
+        }
+}
+//function to print numbers
+void ft_print_numbers() {
+    char num = '0';
+    while(num <= '9') {
+        write(1, &num, 1);
+        num++;
+    }
+}
+//function to print reverse alphabet
+void ft_print_reverse_alphabet() {
+    char letter = 'z';
+    while(letter >= 'a') {
+        write(1, &letter, 1);
+        letter--;
+    }
+}
+//function to print alphabet
+void ft_print_alphabet() {
+    char letter = 'a';
+    while(letter <= 'z') {
+        write(1, &letter, 1);
+        letter++;
+    }
+}
+//function to put a character or output character
+void ft_put_char(char myChar) {
+    write(1, &myChar, 1);
+}
+
+
+int main() {
+    char mystr[] = "david";
+    ft_put_string(&mystr);
+    //int a = 10;
+   // int b = 2;
+   // int div;
+   // int mod;
+   // ft_div_mod(a,b, &div, &mod);
+   // printf("%d",div);
+    //char str1 = 'a';
+    //char str2 = 'b';
+    //ft_swap(&str1, &str2);
+    //printf("%c\n", str1);
+    // int num = 10;
+   // ft_ft(&num);
+   //int *pointer1 = &num;
+    //int **pointer2 = &pointer1;
+    //int ***pointer3 = &pointer2;
+     //int ****pointer4 = &pointer3;
+     //int *****pointer5 = &pointer4;
+     //int ******pointer6 = &pointer5;
+     //int *******pointer7 = &pointer6;
+     //int ********pointer8 = &pointer7;
+     //int *********pointer9 = &pointer8;
+     //ft_ft_ultimate(pointer9);
+     //printf("%d",num);
+    //int num = -1;
+    //ft_is_negative(&num);
+    //ft_print_numbers();
+    //ft_print_reverse_alphabet();
+   // ft_print_alphabet();
+    //char myC = 'a';
+    //ft_put_char(myC);
+    return 0;
+}
+
+
+
+/*
+//function to capitalize
+char *my_str_capitalize(char *str) {
+    int firstLetter = 1;
+    while(*str) {
+        if(*str >= 'a' && *str <= 'z' || *str >= 'A' && *str <= 'Z') {
+            if(firstLetter > 0) {
+                if(*str >= 'a' && *str <= 'z') {
+                    *str -= 32;
+                }
+                firstLetter = 0;
+            } else {
+                if(*str >= 'A' && *str <= 'Z') {
+                *str += 32;
+             }
+            }
+        } else if(!(*str >= '0' && *str <= '9')) {
+            firstLetter = 1;
+        }
+        str++;
+    }
+    return str;
+}
+//function to put nbr
+void my_put_nbr(int *num) {
+    write(1, nbr, 1);
+}
+//function to put string
+void my_put_string(char *str) {
+    while(*str) {
+            write(1, str, 1);
+        str++;
+    }
+}
 //function to calculate the length of a string
 int my_str_length(char *str) {
     int length = 0;
@@ -510,6 +665,8 @@ void ft_strlen(char *myString)
     }
     return length;
 }*/
+
+/*
 // function to output string
 void ft_putString(char *myString)
 {
