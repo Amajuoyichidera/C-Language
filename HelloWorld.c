@@ -7,6 +7,36 @@
 
 
 
+//function to sort an array and arrange them in the correct order
+void ft_sort_int_tab(int *tab, int size) {
+    int start = 0;
+    int temp;
+    int end = size - 1;
+    while(start < end) {
+        if(tab[start] > tab[start + 1]) {
+            temp = tab[start];
+            tab[start] = tab[start + 1];
+            tab[start + 1] = temp;
+            start = 0;
+        } else {
+            start++;
+        }
+    }
+}
+//function to reverse given array of numbers or characters
+void ft_rev_int_tab(int *tab, int size) {
+    int temp;
+    int start = 0;
+    int end = size - 1;
+    while(start < end) {
+        temp = tab[start];
+        tab[start] = tab[end];
+        tab[end] = temp;
+
+        start++;
+        end--;
+    }
+}
 //function to calculate the length of a string
 int ft_str_len(char *str) {
     int length = 0;
@@ -89,8 +119,20 @@ void ft_put_char(char myChar) {
 
 
 int main() {
-    char mystr[] = "david";
-    ft_put_string(&mystr);
+    int tab[] = {5,1,3,5,6, 9, 0};
+    int size = sizeof(tab) / sizeof(tab[0]);
+    ft_sort_int_tab(tab, size);
+    for(int i = 0; i < size; i++) {
+        printf("%d", tab[i]);
+    }
+    //int tab[] = {1, 2, 3, 4, 5};
+    //int size = sizeof(tab) / sizeof(tab[0]);
+    //ft_rev_int_tab(tab, size);
+   // for(int i = 0; i < size; i++) {
+        //printf("%d", tab[i]);
+    //}
+    //char mystr[] = "david";
+    //ft_put_string(&mystr);
     //int a = 10;
    // int b = 2;
    // int div;
