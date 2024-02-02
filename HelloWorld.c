@@ -7,6 +7,133 @@
 
 
 
+
+
+//function to compare the given number of two strings
+int ft_strncmp(char *str1, char *str2, int n) {
+    while(*str1 && *str2 && *str1 == *str2 && n > 0) {
+        str1++;
+        str2++;
+        n--;
+    }
+    return *str1 - *str2;
+}
+//function to compare two strings and know if they are the same
+int ft_strcmp(char *str1, char *str2) {
+    while(*str1 && *str2 && *str1 == *str2) {
+        str1++;
+        str2++;
+    }
+    return *str1 - *str2;
+}
+//function to capitalize a given string
+void ft_str_capitalize(char *str) {
+    int firstLetter = 1;
+    while(*str) {
+        if(*str >= 'a' && *str <= 'z' || *str >= 'A' && *str <= 'Z') {
+            if(firstLetter > 0) {
+                if(*str >= 'a' && *str <= 'z') {
+                    *str -= 32;
+                }
+                firstLetter = 0;
+            } else {
+                if(*str >= 'A' && *str <= 'Z') {
+                *str += 32;
+             }
+            }
+        } else {
+            if(!(*str >= '0' && *str <= '9')) {
+            firstLetter = 1;
+         }
+         }
+         str++;
+    }
+}
+//function to convert string to lowercase only
+void ft_str_to_lowercase(char *str) {
+    while(*str) {
+        if(*str >= 'A' && *str <= 'Z') {
+            *str += 32;
+        }
+        str++;
+    }
+}
+//function to convert string to uppercase only
+void ft_strupcase(char *str) {
+    while(*str) {
+        if(*str >= 'a' && *str <= 'z') {
+            *str -= 32;
+        }
+        str++;
+    }
+}
+//function to check if given string is printable
+int ft_str_is_printable(char *str) {
+    while(*str) {
+        if(!(*str >= ' ' && *str <= '~')) {
+            return 0;
+        }
+        str++;
+    }
+    return 1;
+}
+//function to check if given string is uppercase only
+int ft_str_is_uppercase(char *str) {
+    while(*str) {
+        if(!(*str >= 'A' && *str <= 'Z')) {
+            return 0;
+        }
+        str++;
+    }
+    return 1;
+}
+//function to check if given string is lowercase only
+int ft_str_is_lowercase(char *str) {
+    while(*str) {
+        if(!(*str >= 'a' && *str <= 'z')) {
+            return 0;
+        }
+        str++;
+    }
+    return 1;
+}
+//function to check if given string is number only
+int ft_str_is_numeric(char *str) {
+    while(*str) {
+        if(!(*str >= '0' && *str <= '9')) {
+            return 0;
+        }
+        str++;
+    }
+    return 1;
+}
+//function to check if given string is alphabets only
+int ft_str_is_alpha(char *str) {
+    while(*str) {
+        if(!(*str >= 'a' && *str <= 'z' || *str >= 'A' && *str <= 'Z')) {
+            return 0;
+        }
+        str++;
+    }
+     return 1;
+}
+//function to copy a given number of string from source to destination
+char *ft_strncpy(char *dest, char *src, int n) {
+    while(*src && n > 0) {
+        *dest++ = *src++;
+        n--;
+    }
+    *dest = '\0';
+    return dest;
+}
+//function to copy a string
+char *ft_strcpy(char *dest, char *src) {
+    while(*src) {
+        *dest++ = *src++;
+    }
+    *dest = '\0';
+    return dest;
+}
 //function to sort an array and arrange them in the correct order
 void ft_sort_int_tab(int *tab, int size) {
     int start = 0;
@@ -119,12 +246,36 @@ void ft_put_char(char myChar) {
 
 
 int main() {
-    int tab[] = {5,1,3,5,6, 9, 0};
-    int size = sizeof(tab) / sizeof(tab[0]);
-    ft_sort_int_tab(tab, size);
-    for(int i = 0; i < size; i++) {
-        printf("%d", tab[i]);
+    char str1[] = "apple";
+    char str2[] = "ball";
+    //int result = ft_strcmp(str1, str2);
+    int result = ft_strncmp(str1, str2, 1);
+     if (result < 0) {
+        printf("'%s' is less than '%s'\n", str1, str2);
+    } else if (result > 0) {
+        printf("'%s' is greater than '%s'\n", str1, str2);
+    } else {
+        printf("'%s' is equal to '%s'\n", str1, str2);
     }
+    //char myStr[] = "david";
+    //int result = ft_str_is_alpha(myStr);
+    //int result = ft_str_is_numeric(myStr);
+    //if(result == 0) {
+      //  printf("The string is not alphabets only");
+    //} else {
+        //printf("The string is alphabets only");
+    //}
+   // char src[] = "Davidoooo";
+    //char dest[20];
+    //ft_strcpy(dest, src);
+   // ft_strncpy(dest, src, 5);
+   // printf("%s",dest);
+    //int tab[] = {5,1,3,5,6, 9, 0};
+    //int size = sizeof(tab) / sizeof(tab[0]);
+    //ft_sort_int_tab(tab, size);
+    //for(int i = 0; i < size; i++) {
+       // printf("%d", tab[i]);
+   // }
     //int tab[] = {1, 2, 3, 4, 5};
     //int size = sizeof(tab) / sizeof(tab[0]);
     //ft_rev_int_tab(tab, size);
