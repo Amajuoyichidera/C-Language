@@ -9,6 +9,59 @@
 
 
 
+
+//function to find a sring in already existing string
+
+char *ft_str_find(char *str, char *to_find) {
+    if(!*to_find) {
+        return str;
+    }
+
+    while(*str) {
+        if(*str == *to_find) {
+            char *strPointer = str;
+            char *to_findPointer = to_find;
+
+            while(*strPointer == *to_findPointer && *to_findPointer) {
+                strPointer++;
+                to_findPointer++;
+            }
+
+            if(!*to_findPointer) {
+                return str;
+            }
+        }
+        str++;
+    }
+    return NULL;
+}
+//function to concatenate the given number of a string to another string
+char *ft_str_n_cat(char *dest, char *src, int n) {
+    char *destPointer = dest;
+    while(*dest) {
+        dest++;
+    }
+
+    while(*src && n > 0) {
+        *dest++ = *src++;
+        n--;
+    }
+    *dest = '\0';
+    return destPointer;
+}
+//function to concatenate two strings together
+char *ft_str_cat(char *dest, char *src) {
+    char *destPointer = dest;
+    while(*dest) {
+        dest++;
+    }
+
+    while(*src) {
+        *dest++ = *src++;
+    }
+    *dest = '\0';
+    return destPointer;
+}
 //function to compare the given number of two strings
 int ft_strncmp(char *str1, char *str2, int n) {
     while(*str1 && *str2 && *str1 == *str2 && n > 0) {
@@ -246,17 +299,30 @@ void ft_put_char(char myChar) {
 
 
 int main() {
-    char str1[] = "apple";
-    char str2[] = "ball";
+    char str1[] = "Hello David";
+    char toFind[] = "David";
+    char *result = ft_str_find(str1, toFind);
+    if(result) {
+    printf("%s\n", result);
+} else {
+    printf("Not found\n");
+}
+   // char dest[] = "Hello ";
+   // char src[] = "World";
+    //ft_str_cat(dest,src);
+   // ft_str_n_cat(dest, src, 2);
+   // printf("%s",dest);
+   // char str1[] = "apple";
+   // char str2[] = "ball";
     //int result = ft_strcmp(str1, str2);
-    int result = ft_strncmp(str1, str2, 1);
-     if (result < 0) {
-        printf("'%s' is less than '%s'\n", str1, str2);
-    } else if (result > 0) {
-        printf("'%s' is greater than '%s'\n", str1, str2);
-    } else {
-        printf("'%s' is equal to '%s'\n", str1, str2);
-    }
+//int result = ft_strncmp(str1, str2, 1);
+    // if (result < 0) {
+       // printf("'%s' is less than '%s'\n", str1, str2);
+    //} else if (result > 0) {
+       // printf("'%s' is greater than '%s'\n", str1, str2);
+    //} else {
+       // printf("'%s' is equal to '%s'\n", str1, str2);
+    //}
     //char myStr[] = "david";
     //int result = ft_str_is_alpha(myStr);
     //int result = ft_str_is_numeric(myStr);
