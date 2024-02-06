@@ -10,8 +10,41 @@
 
 
 
-//function to find a sring in already existing string
+//function to calculate the factor of a number
+int ft_iterative_factorial(int num) {
+    int result = 1;
+    if(num == 0) {
+        return 1;
+    }
 
+    while(num) {
+        result *= num;
+        num--;
+    }
+    return result;
+}
+//function to put nbr
+int my_ft_put_nbr(int *nbr) {
+    *nbr = 42;
+    return *nbr;
+}
+//function to put string
+void my_ft_put_string(char *str) {
+    while(*str) {
+        write(1, str, 1);
+        str++;
+    }
+}
+//function to calculate the length of a string
+int my_ft_str_len(char *str) {
+    int length = 0;
+    while(*str) {
+        length++;
+        str++;
+    }
+    return length;
+}
+//function to find a sring in already existing string
 char *ft_str_find(char *str, char *to_find) {
     if(!*to_find) {
         return str;
@@ -299,14 +332,19 @@ void ft_put_char(char myChar) {
 
 
 int main() {
-    char str1[] = "Hello David";
-    char toFind[] = "David";
-    char *result = ft_str_find(str1, toFind);
-    if(result) {
-    printf("%s\n", result);
-} else {
-    printf("Not found\n");
-}
+    int result = ft_iterative_factorial(5);
+    printf("%d", result);
+    //char myStr[] = "emmanuel";
+   // int length = my_ft_str_len(myStr);
+   // printf("length of given string is %d",length);
+    //char str1[] = "Hello David";
+    //char toFind[] = "David";
+   // char *result = ft_str_find(str1, toFind);
+   // if(result) {
+   // printf("%s\n", result);
+   // } else {
+     // printf("Not found\n");
+   // }
    // char dest[] = "Hello ";
    // char src[] = "World";
     //ft_str_cat(dest,src);
