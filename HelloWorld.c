@@ -10,7 +10,45 @@
 
 
 
-//function to calculate the factor of a number
+//function to calculate recursive power
+int ft_recursive_power(int num, int power) {
+    if(power < 0) {
+        return 0;
+    }
+
+    if(power == 0) {
+        return 1;
+    }
+
+    return num * ft_recursive_power(num, power - 1);
+}
+//function to calculate a number raise to power or iterative power
+int ft_iterative_power(int num, int power) {
+    if(power == 0) {
+        return 1;
+    }
+
+    int result = 1;
+    while(power > 0) {
+        result *= num;
+        power--;
+    }
+
+    return result;
+}
+//function to calculate the recursive factor of a number
+int ft_recursive_factorial(int num) {
+    if(num < 0) {
+        return 0;
+    }
+
+    if(num <= 1) {
+        return 1;
+    }
+
+    return ft_recursive_factorial(num - 1) * num;
+}
+//function to calculate the iterative factor of a number
 int ft_iterative_factorial(int num) {
     int result = 1;
     if(num == 0) {
