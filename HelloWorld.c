@@ -7,9 +7,21 @@
 
 
 
+//function to know if a number is prime
+int ft_is_prime(int num) {
+    if(num < 2) {
+        return 0;
+    }
 
-
-
+    int i = 2;
+    while(i < num) {
+        if(num % i == 0) {
+            return 0;
+        }
+        i++;
+    }
+    return 1;
+}
 //function to calculate recursive power
 int ft_recursive_power(int num, int power) {
     if(power < 0) {
